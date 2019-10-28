@@ -1,64 +1,96 @@
-﻿using System;
-using System.Globalization;
+﻿// <copyright file="Customer.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace CustomerLibrary
 {
+    using System;
+    using System.Globalization;
+
+    /// <summary>
+    /// Contains information about customer.
+    /// </summary>
     public class Customer : IFormattable
     {
+        /// <summary>
+        /// Gets Name.
+        /// </summary>
+        public string Name { get; private set; }
 
-        public string Name { get; set; }
-        public string ContactPhone { get; set; }
-        public decimal Revenue { get; set; }
+        /// <summary>
+        /// Gets ContactPhone.
+        /// </summary>
+        public string ContactPhone { get; private set; }
+
+        private decimal Revenue { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Customer"/> class.
+        /// </summary>
+        /// <param name="name">Customer Name.</param>
+        /// <param name="contactPhone">Customer ContactPhone.</param>
+        /// <param name="revenue">Customer Revenue.</param>
         public Customer(string name, string contactPhone, decimal revenue)
         {
-            Name = name;
-            ContactPhone = contactPhone;
-            Revenue = revenue;
+            if (name is null || contactPhone is null)
+            {
+                throw new ArgumentNullException($"{name}, {contactPhone} are required parameters.");
+            }
+
+            if (revenue < 0)
+            {
+                throw new ArgumentException($"{revenue} must be positive.");
+            }
+
+            this.Name = name;
+            this.ContactPhone = contactPhone;
+            this.Revenue = revenue;
         }
 
+        /// <summary>
+        /// Returns information about customer.
+        /// </summary>
+        /// <param name="format">Letter of the format.</param>
+        /// <returns>String Representation of the customer.</returns>
         public string ToString(string format)
         {
-            return ToString(format, CultureInfo.GetCultureInfo("en-US"));
+            return this.ToString(format, CultureInfo.GetCultureInfo("en-US"));
         }
 
+        /// <summary>
+        /// Returns information about customer.
+        /// </summary>
+        /// <param name="format">Letter of the format.</param>
+        /// <param name="formatProvider">IFormatProvider.</param>
+        /// <returns>Returns string Representation of the customer.</returns>
         public string ToString(string format, IFormatProvider formatProvider)
         {
-            if (String.IsNullOrEmpty(format)) format = "F";
+            if (string.IsNullOrEmpty(format))
+            {
+                format = "F";
+            }
 
             if (formatProvider == null)
             {
                 formatProvider = CultureInfo.GetCultureInfo("en-US");
             }
+
             string result = "Customer record";
             switch (format)
             {
                 case "F":
-                    return String.Format("{0}: {1}, {2}, {3}", result, Name, Revenue.ToString("C", formatProvider), ContactPhone);
+                    return string.Format("{0}: {1}, {2}, {3}", result, this.Name, this.Revenue.ToString("C", formatProvider), this.ContactPhone);
                 case "C":
-                    return String.Format("{0}: {1}", result, ContactPhone);
+                    return string.Format("{0}: {1}", result, this.ContactPhone);
                 case "NR":
-                    return String.Format("{0}: {1}, {2:C}", result, Name, Revenue.ToString("C", formatProvider));
+                    return string.Format("{0}: {1}, {2:C}", result, this.Name, this.Revenue.ToString("C", formatProvider));
                 case "N":
-                    return String.Format("{0}: {1}", result, Name);
+                    return string.Format("{0}: {1}", result, this.Name);
                 case "R":
-                    return String.Format("{0}: {1}", result, Revenue);
+                    return string.Format("{0}: {1}", result, this.Revenue);
                 default:
-                    throw new FormatException(String.Format("The {0} format string is not supported.", format));
+                    throw new FormatException(string.Format("The {0} format string is not supported.", format));
             }
         }
     }
 }
-/*
-     
-        [TestCase("F", ExpectedResult = "Customer record: Jeffrey Richter, 1,000,000.00, +1 (425) 555-0100")]
-        [TestCase("C", ExpectedResult = "Customer record: +1 (425) 555-0100")]
-        [TestCase("NR",ExpectedResult = "Customer record: Jeffrey Richter, 1,000,000.00")]
-        [TestCase("N", ExpectedResult = "Customer record: Jeffrey Richter")]
-        [TestCase("R", ExpectedResult = "Customer record: $1000000")]
-        [TestCase("R", ExpectedResult = "Customer record: 1000000 €")]
-        
-        public string ToString(string format)
-        {
-            return new Customer("Jeffrey Richter", "+1 (425) 555-0100", 1000000).ToString($"{format}");
-        }
-     */

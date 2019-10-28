@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SumOfStringsLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:SumOfStringsLibrary.SumOfStrings">
+            <summary>
+            A class to allow the sum of two big numbers
+            that are strings and return a string.
+            </summary>
+        </member>
+        <member name="M:SumOfStringsLibrary.SumOfStrings.GetSumOfTwoStrings(System.String,System.String)">
+            <summary>
+            Function that returns the sum of two big numbers.
+            </summary>
+            <param name="first">First Number.</param>
+            <param name="second">Second Number.</param>
+            <returns>Sum of two numbers.</returns>
+        </member>
+    </members>
+</doc>

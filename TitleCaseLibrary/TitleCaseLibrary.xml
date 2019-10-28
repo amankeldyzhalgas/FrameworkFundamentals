@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TitleCaseLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:TitleCaseLibrary.TitleCase">
+            <summary>
+            A class to allow convert a string into title case,
+            given an optional list of exceptions (minor words).
+            </summary>
+        </member>
+        <member name="M:TitleCaseLibrary.TitleCase.GetTitleCase(System.String)">
+            <summary>
+            A function that will convert a string into title case.
+            </summary>
+            <param name="original">Original string.</param>
+            <returns>Converted string.</returns>
+        </member>
+        <member name="M:TitleCaseLibrary.TitleCase.GetTitleCase(System.String,System.String)">
+            <summary>
+            A function that will convert a string into title case,
+            given an optional list of exceptions (minor words).
+            </summary>
+            <param name="minor">Minor words.</param>
+            <param name="original">Original string.</param>
+            <returns>Converted string.</returns>
+        </member>
+    </members>
+</doc>

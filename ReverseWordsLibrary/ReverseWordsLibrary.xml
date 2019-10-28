@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ReverseWordsLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:ReverseWordsLibrary.ReverseWords">
+            <summary>
+            A class to allow reverses all of the words within the string.
+            </summary>
+        </member>
+        <member name="M:ReverseWordsLibrary.ReverseWords.Reverse(System.String)">
+            <summary>
+            Reverses all of the words within the string.
+            </summary>
+            <param name="word">Words.</param>
+            <returns>Reversed string.</returns>
+        </member>
+    </members>
+</doc>

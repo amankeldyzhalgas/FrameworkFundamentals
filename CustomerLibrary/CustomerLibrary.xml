@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CustomerLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:CustomerLibrary.Customer">
+            <summary>
+            Contains information about customer.
+            </summary>
+        </member>
+        <member name="P:CustomerLibrary.Customer.Name">
+            <summary>
+            Gets Name.
+            </summary>
+        </member>
+        <member name="P:CustomerLibrary.Customer.ContactPhone">
+            <summary>
+            Gets ContactPhone.
+            </summary>
+        </member>
+        <member name="M:CustomerLibrary.Customer.#ctor(System.String,System.String,System.Decimal)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CustomerLibrary.Customer"/> class.
+            </summary>
+            <param name="name">Customer Name.</param>
+            <param name="contactPhone">Customer ContactPhone.</param>
+            <param name="revenue">Customer Revenue.</param>
+        </member>
+        <member name="M:CustomerLibrary.Customer.ToString(System.String)">
+            <summary>
+            Returns information about customer.
+            </summary>
+            <param name="format">Letter of the format.</param>
+            <returns>String Representation of the customer.</returns>
+        </member>
+        <member name="M:CustomerLibrary.Customer.ToString(System.String,System.IFormatProvider)">
+            <summary>
+            Returns information about customer.
+            </summary>
+            <param name="format">Letter of the format.</param>
+            <param name="formatProvider">IFormatProvider.</param>
+            <returns>Returns string Representation of the customer.</returns>
+        </member>
+        <member name="T:CustomerLibrary.CustomerExtension">
+            <summary>
+            Contains information about customer.
+            </summary>
+        </member>
+        <member name="M:CustomerLibrary.CustomerExtension.#ctor(System.IFormatProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CustomerLibrary.CustomerExtension"/> class.
+            </summary>
+            <param name="provider">IFormatProvider.</param>
+        </member>
+        <member name="M:CustomerLibrary.CustomerExtension.Format(System.String,System.Object,System.IFormatProvider)">
+            <summary>
+            Returns information about customer.
+            </summary>
+            <param name="format">Letter of the format.</param>
+            <param name="arg">Argument.</param>
+            <param name="formatProvider">IFormatProvider.</param>
+            <returns>Returns string Representation of the customer.</returns>
+        </member>
+    </members>
+</doc>

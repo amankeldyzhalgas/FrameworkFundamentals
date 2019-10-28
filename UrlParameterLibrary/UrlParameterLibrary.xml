@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UrlParameterLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:UrlParameterLibrary.UrlParameter">
+            <summary>
+            A class implement manipulate URL parameters.
+            </summary>
+        </member>
+        <member name="M:UrlParameterLibrary.UrlParameter.AddOrChangeUrlParameter(System.String,System.String)">
+            <summary>
+            A function  can manipulate URL parameters..
+            </summary>
+            <param name="url">URL.</param>
+            <param name="keyValueParameter">Parameter.</param>
+            <returns>New URL.</returns>
+        </member>
+    </members>
+</doc>
